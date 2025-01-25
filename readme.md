@@ -5,6 +5,6 @@ kubectl run demogo --image zavulon/devops-goslim:v1 --port=8080 --labels app=dem
 ```
 
 ```
-kubectl port-forward pod/demog 8080:8080
+kubectl port-forward pod/demogo 8080:8080
 
 ```
