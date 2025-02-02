@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ixidod/devops-go
-    path: k8s-manifests
+    path: /
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
