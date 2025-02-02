@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: demo-go
-          image: zavulon/devops-goslim:6d334da086312a538b4a3a0d3ab5f1c75436799e
+          image: zavulon/devops-goslim:a0e9450eb744811bd929d8b42125d7a075576377
           ports:
             - containerPort: 8080
