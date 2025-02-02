@@ -23,7 +23,7 @@ jobs:
 
       - name: Update Kubernetes Manifests
         run: |
-          sed -i "s|zavulon/devops-goslim:.*|zavulon/devops-goslim:${{ github.sha }}|" k8s-manifests/deployment.yaml
+          sed -i "s|zavulon/devops-goslim:.*|zavulon/devops-goslim:${{ github.sha }}|" deployment.yaml
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add k8s-manifests/deployment.yaml
