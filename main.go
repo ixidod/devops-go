@@ -6,7 +6,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "teraz wersja finalna caly pipeline ci/cd dziala jak ta llala")
+	fmt.Fprintln(w, " lekka zmiana w auto-sync argocd teraz wersja finalna caly pipeline ci/cd dziala jak ta llala")
 }
 func main() {
 	http.HandleFunc("/", handler)
