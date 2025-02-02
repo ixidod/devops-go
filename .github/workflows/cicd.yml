@@ -1,0 +1,31 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build & Push Docker Image
+        run: |
+          docker build -t zavulon/devops-goslim:${{ github.sha }} .
+          docker push zavulon/devops-goslim:${{ github.sha }}
+
+      - name: Update Kubernetes Manifests
+        run: |
+          sed -i "s|yourusername/go-app:.*|yourusername/go-app:${{ github.sha }}|" k8s-manifests/deployment.yaml
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add k8s-manifests/deployment.yaml
+          git commit -m "Update image to ${{ github.sha }}"
+          git push
