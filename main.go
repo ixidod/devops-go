@@ -6,7 +6,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "mala zmiana proboa ci/cd")
+	fmt.Fprintln(w, " nastepna zmiana mala zmiana proboa ci/cd")
 }
 func main() {
 	http.HandleFunc("/", handler)
